@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from pedidos.emissao.models import Clientes, Produtos, Pedidos
+from pedidos.emissao.models import Clientes, Produtos, Pedidos, Itens
 
 class ClientesAdmin(admin.ModelAdmin):
 	model = Clientes
@@ -13,6 +13,12 @@ class ProdutosAdmin(admin.ModelAdmin):
 	list_display = ['produto_id', 'produto_nome', 'produto_preco', 'produto_multiplo']
 	search_fields = ['produto_nome']
 admin.site.register(Produtos, ProdutosAdmin)
+
+class ItensAdmin(admin.ModelAdmin):
+	model = Itens
+	list_display = ['item_id', 'item_quantidade', 'item_preco_escolhido', 'item_produto']
+	search_fields = ['item_produto']
+admin.site.register(Itens, ItensAdmin)
 
 class PedidosAdmin(admin.ModelAdmin):
 	model = Pedidos

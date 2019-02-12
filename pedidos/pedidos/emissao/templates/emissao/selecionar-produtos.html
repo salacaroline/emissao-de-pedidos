@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Sistema de controle de pedidos</title>
-	</head>
-	<body>
-		<h1>Selecionar produtos</h1>
-		<h2>quantidade e multiplo</h2>
-		<a href="{% url 'index' %}"><button>Concluir</button></a>
-	</body>
-</html>
+{% extends 'emissao/_layouts/base.html' %}
+
+{% block content %}
+	<div>
+	<h1>Selecionar produtos</h1>
+	</div>
+	{% for produto in produtos %}
+	    <div>
+	        <p>id: {{ produto.produto_id }}</p>
+	        <p>nome: {{ produto.produto_nome }}</p>
+	        <p>preco: {{ produto.produto_preco }}</p>
+	        <p>multiplo: {{ produto.produto_multiplo }}</p>
+	    </div>
+	{% endfor %}
+	<a href="{% url 'index' %}"><button>Concluir</button></a>
+{% endblock %}

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Sistema de controle de pedidos</title>
-	</head>
-	<body>
-		<h1>Sistema de controle de pedidos</h1>
-		<a href="{% url 'cadastro' %}"><button>Emitir um novo pedido</button></a>
-		<a href="#"><button>Consultar pedidos</button></a>
-	</body>
-</html>
+{% extends 'emissao/_layouts/base.html' %}
+
+{% block content %}
+<h1>Sistema de controle de pedidos</h1>
+<a href="{% url 'novo_item' %}"><button>Emitir um novo pedido</button></a>
+<a href="#"><button>Consultar pedidos</button></a>
+{% endblock %}

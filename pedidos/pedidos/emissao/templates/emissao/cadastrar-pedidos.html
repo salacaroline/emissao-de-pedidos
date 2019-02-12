@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Sistema de controle de pedidos</title>
-	</head>
-	<body>
-		<h1>Cadastro de pedidos</h1>
-		<h2>selecione o cliente</h2>
-		<a href="{% url 'selecionar_produtos' %}"><button>Proximo</button></a>
-	</body>
-</html>
+{% extends 'emissao/_layouts/base.html' %}
+
+{% block content %}
+	<div>
+	<h1>Cadastro de pedidos</h1>
+	</div>
+	<h2>selecione o cliente</h2>
+
+	{% for cliente in clientes %}
+	    <div>
+	        <p>id: {{ cliente.cliente_id }}</p>
+	        <p>nome: {{ cliente.cliente_nome }}</p>
+	    </div>
+	{% endfor %}
+
+	<p><a href="{% url 'selecionar_produtos' %}"><button>Proximo</button></a></p>
+{% endblock %}
