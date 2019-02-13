@@ -20,4 +20,4 @@ class Pedidos(models.Model):
 	pedido_id = models.AutoField(primary_key = True)
 	pedido_data = models.DateTimeField(auto_now_add = True)
 	pedido_cliente = models.ForeignKey("Clientes", on_delete=models.CASCADE)
-	pedido_itens = models.ForeignKey("Itens", on_delete=models.CASCADE, null = True)
+	pedido_itens = models.ManyToManyField("Itens")

@@ -1,0 +1,62 @@
+{% extends 'emissao/_layouts/base.html' %}
+
+{% block content %}
+	<div>
+	<h1>Cadastro de pedidos</h1>
+	</div>
+	<h2>selecione o cliente</h2>
+
+
+
+	{% if clientes|length > 0 %}
+            <p class="card-text">
+              Aqui está a lista de <code>Clientes</code> cadastrados.
+            </p>
+
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              {% for cliente in clientes %}
+                <tr>
+                  <td>{{ cliente.cliente_id }}</td>
+                  <td>{{ cliente.cliente_nome }}</td>
+                  <td>
+                    <a href="{% url 'novo_item' pk=cliente.cliente_id %}"
+                       class="btn btn-info">
+                      Próximo
+                    </a>
+                    <a href="{% url 'novo_item' pk=cliente.cliente_id %}"
+                      class="btn btn-outline-danger">
+                        Excluir
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        {% else %}
+          <div class="text-center mt-5 mb-5 jumbotron">
+            <h5>Nenhum <code>Cliente</code> cadastrado ainda.</h5>
+          </div>
+        {% endif %}
+
+
+
+
+     <!--div>
+	{% for cliente in clientes %}
+	    <div>
+	        <p>id: {{ cliente.cliente_id }}</p>
+	        <p>nome: {{ cliente.cliente_nome }}</p>
+	    </div>
+	{% endfor %}
+
+	<p><a href="{% url 'selecionar_produtos' %}"><button>Proximo</button></a></p>
+{% endblock %}
+	</div -->

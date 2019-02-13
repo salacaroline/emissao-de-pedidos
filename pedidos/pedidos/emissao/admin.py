@@ -23,5 +23,5 @@ admin.site.register(Itens, ItensAdmin)
 class PedidosAdmin(admin.ModelAdmin):
 	model = Pedidos
 	list_display = ['pedido_id', 'pedido_data', 'pedido_cliente']
-	search_fields = ['pedido_data', 'pedido_cliente', 'pedido_produto']
+	search_fields = ['pedido_data', 'pedido_cliente']
 admin.site.register(Pedidos, PedidosAdmin)
